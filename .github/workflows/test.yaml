@@ -1,18 +1,25 @@
-name: test
+name: SeleniumTest
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
 jobs:
-  test01:
+  seleniumtest:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
         uses: actions/checkout@v2
-     #Setup Python   
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
-      - name: Install Chromium-Browser
-        run: sudo apt-get install -y chromium-browser
-      - name: Install the Webdriver-Selenium / Pyrest
-        run: pip install requests webdriver-manager selenium pytest
+      - name: Installed package list
+        run: apt list --installed
+      - name: Remove Chrome
+        run: sudo apt purge google-chrome-stable
+      - name: Install software
+        run: sudo apt install -y chromium-browser
+      - name: Install all necessary packages
+        run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
+      - name: Run bartest
+        run: python bartest.py
+      - name: Run categorytest
+        run: python categorytest.py
