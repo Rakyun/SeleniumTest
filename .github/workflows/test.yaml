@@ -12,7 +12,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
-      - name: Install C
+      - name: Install Chromium-Browser
         run: sudo apt-get install -y chromium-browser
       - name: Install the Webdriver-Selenium / Pyrest
         run: pip install requests webdriver-manager selenium pytest
