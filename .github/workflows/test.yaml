@@ -16,5 +16,3 @@ jobs:
         run: sudo apt-get install -y chromium-browser
       - name: Install the Webdriver-Selenium / Pyrest
         run: pip install requests webdriver-manager selenium pytest
-      - name: Run the Pytest Script
-        run: pytest -rA
